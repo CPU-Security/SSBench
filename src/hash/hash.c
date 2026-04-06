@@ -176,7 +176,7 @@ int main(int argc, char* argv[]) {
                 for(volatile int z = 0; z < 1000; ++ z) {}
                 #endif
             }
-            if (state_analysie(time, SIZE_SAMPLE_HSAH) >= (expected_mdp_val >= 8 ? expected_mdp_val / 2 : expected_mdp_val)) {
+            if (state_analysie(time, SIZE_SAMPLE_HSAH) >= (expected_mdp_val >= 4 ? expected_mdp_val / 2 : expected_mdp_val)) {
                 collide_cnt += 1;
             }
             // evict if necessary

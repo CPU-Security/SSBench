@@ -54,6 +54,8 @@ if __name__ == "__main__":
                         help="Specify architecture from [intel, amd, arm, apple, riscv]")
     parser.add_argument("-c", "--cpu", type=int, default=0,
                         help="Specify the tested CPU ID")
+    parser.add_argument("-u", "--user", action="store_true",
+                        help="Do not use sudo")
     args = parser.parse_args()
 
     # If no architecture is provided, detect it from the current system
@@ -73,9 +75,9 @@ if __name__ == "__main__":
     sm.test_sm(arch, args.cpu)
     sm.sm_gen_prime_seq(arch, args.cpu)
     t3 = time.time()
-    hash.test_hash(arch, args.cpu)
+    hash.test_hash(arch, args.cpu, args.user)
     t4 = time.time()
-    org.test_org(arch, args.cpu)
+    org.test_org(arch, args.cpu, args.user)
     t5 = time.time()
     os.chdir(original_dir)
     characterization_file = os.path.join("data", "characterization.json")

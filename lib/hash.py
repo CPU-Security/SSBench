@@ -201,7 +201,7 @@ def hash_solver_wrapper(character, filter=False):
             is_va = False
         return hash_mdp, is_va
 
-def test_hash(arch, cpu, collect_addr = False):
+def test_hash(arch, cpu, user_mode = False, collect_addr = False):
     """
     Test the hash function of an MDP.
 
@@ -256,7 +256,7 @@ def test_hash(arch, cpu, collect_addr = False):
         collide_addr = []
         build(arch)
         set_input(gen_seq_in_text_list(seq_for_re), cpu, expected_sm_val)
-        if arch == "apple": 
+        if arch == "apple" or user_mode: 
             run(False)
         else:
             run()

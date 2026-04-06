@@ -423,7 +423,7 @@ def test_org_parameters(num_try = 5):
                 best_d = tested_org[d][0]
     return best_d, max_cnt / all_freq
 
-def test_org(arch, cpu):
+def test_org(arch, cpu, user_mode = False):
     """
     Test the organization parameters of an MDP.
 
@@ -458,7 +458,7 @@ def test_org(arch, cpu):
     run(elf_mem, sudo=False)
     fixed_addr, _, _ = parse_output_mem(arch, character, 0)
     set_input_mem(1, fixed_addr)
-    if arch == "apple" or character["hash"]["hash_va"]: 
+    if arch == "apple" or character["hash"]["hash_va"] or user_mode: 
         run(elf_mem, sudo=False)
     else:
         run(elf_mem, sudo=True)
