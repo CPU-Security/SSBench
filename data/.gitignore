@@ -3,3 +3,4 @@
 
 # keep .gitignore
 !.gitignore
+!example

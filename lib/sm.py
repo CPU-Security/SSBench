@@ -397,7 +397,6 @@ def gen_seq(raw_seq_with_anx, arch, cpu, consider_store=False,
         assert len(operators) == len(sequences_op)
         return operators, records
 
-    # build(arch)
     time_tp_find = False
     if os.path.isfile(characterization_file):
         with open(characterization_file, 'r') as f:
@@ -711,6 +710,7 @@ def test_sm(arch, cpu):
     #         test_mdp_ld_when_consider_store=False)
     # parse_output(True)
     # 
+    build(arch)
     store_MDP_exist, load_MDP_exist = analyse_info(arch, cpu)
     store_sm = []
     load_sm = []
