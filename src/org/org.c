@@ -9,7 +9,7 @@
 #include "utils.h"
 #include "org_config.h"
 
-#if defined(__APPLE__) && ARCH==31
+#if defined(__APPLE__) && ARCH==3
 #include <pthread.h>
     void bindcore(int core) {
         if (core >= 4) {

@@ -15,7 +15,7 @@ int cluster_range = 80;
 #define ALIAS_OFFSET 16
 int ld_set_ins[ld_seg_len] = {73, 139, 6, 65, 255, 225};
 uint64_t st_jmp_offset[st_jmp_offset_num] = {31, 175};
-#elif ARCH==2
+#elif ARCH==2 || ARCH==4
 // ldr x7, [x7]  
 // br x11
 int cluster_range = 5;
@@ -25,7 +25,7 @@ int cluster_range = 5;
 #define ALIAS_OFFSET 16
 int ld_set_ins[ld_seg_len] = {231, 0, 64, 249, 96, 1, 31, 214};
 uint64_t st_jmp_offset[st_jmp_offset_num] = {168, 184};
-#elif ARCH==31
+#elif ARCH==3
 // ldr x7, [x7]  
 // br x11
 int cluster_range = 50;

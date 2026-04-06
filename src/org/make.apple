@@ -4,7 +4,7 @@ arch ?= amd
 
 ifeq ($(arch), apple)
   arch_file = apple
-  arch_id = 31
+  arch_id = 3
 else
   $(error Unknown ARCH: $(arch))
 endif
