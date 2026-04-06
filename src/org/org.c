@@ -175,7 +175,7 @@ int stld_experiment(int* exp_seq, int exp_seq_len, int* flush_seq, int flush_seq
         time_samples[i + SIZE_SAMPLE_HSAH / 2] = time_samples[cnt - 1 - SIZE_SAMPLE_ORG / 2 + i];
     }
     // check the first store-load entry
-    if (state_analysie(time_samples, SIZE_SAMPLE_HSAH) >= expected_mdp_val >= 8 ? expected_mdp_val / 2 : expected_mdp_val)
+    if (state_analysie(time_samples, SIZE_SAMPLE_HSAH) >= expected_mdp_val / 2)
         return 1;
     else
         return 0;

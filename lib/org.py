@@ -174,12 +174,12 @@ def parse_output_mem(arch, character, hash_id):
     pairs = list(zip(add_point, ld_hash))
     random.shuffle(pairs)
     add_point, ld_hash = zip(*pairs)
-    print(len(add_point), arch)
+    # print(len(add_point), arch)
     if 'intel' in arch or 'amd' in arch:
         if len(add_point) > 4096:
             add_point = add_point[:4096]
             ld_hash = ld_hash[:4096]
-    if 'arm' in arch or 'apple' in arch:
+    if 'arm' in arch or 'apple' in arch or 'neoverse' in arch:
         if len(add_point) > 1024:
             add_point = add_point[:1024]
             ld_hash = ld_hash[:1024]

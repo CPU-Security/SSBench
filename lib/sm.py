@@ -737,7 +737,7 @@ def test_sm(arch, cpu):
             "load_sm": load_sm}
     with open(characterization_file, 'w') as f:
         json.dump(character, f)
-    print("\033[92m\033[1m[OK]\033[0m State Machine testing runs successfully.")
+    print("\033[92m\033[1m[OK]\033[0m State Machine test completes.")
     return
 
 def sm_gen_prime_seq(arch, cpu):

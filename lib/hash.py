@@ -262,7 +262,7 @@ def test_hash(arch, cpu, collect_addr = False):
             run()
         data_virt, data_phys = parse_output()
         collide_addr.append([data_virt, data_phys])
-        print("\033[92m\033[1m[OK]\033[0m Collided addresses collected successfully.")
+        print("Collided addresses collected successfully.")
         with open(collide_addr_file, 'w') as f:
             json.dump(collide_addr, f)
     hash_functions, addr_feature = hash_solver_wrapper(character, filter=True)
@@ -283,4 +283,5 @@ def test_hash(arch, cpu, collect_addr = False):
     character["hash"]["expected_sm_val"] = expected_sm_val
     with open(characterization_file, 'w') as f:
         json.dump(character, f)    
+    print("\033[92m\033[1m[OK]\033[0m Hash test completes.")
     return
