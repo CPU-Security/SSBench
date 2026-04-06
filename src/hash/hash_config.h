@@ -7,6 +7,7 @@
  */
 #define PAGE_ALLOCATE (1 << 8)
 #define COLLIDE_THRESHOLD (LOOP_TRY_HASH * 0.8)
+#define ALIAS_OFFSET 16
 int granularity = 1;
 int func_len = 6;
 int offset_default = 165;
@@ -20,6 +21,7 @@ uint8_t ld_jmp[6] = {72, 139, 6, 65, 255, 226};
  */
 #define PAGE_ALLOCATE (1 << 8)
 #define COLLIDE_THRESHOLD (LOOP_TRY_HASH * 0.8)
+#define ALIAS_OFFSET 16
 int granularity = 1;
 int func_len = 6;
 int offset_default = 165;
@@ -33,6 +35,7 @@ uint8_t ld_jmp[6] = {72, 139, 6, 65, 255, 226};
  */
 #define PAGE_ALLOCATE (1 << 10)
 #define COLLIDE_THRESHOLD (LOOP_TRY_HASH * 0.1)
+#define ALIAS_OFFSET 16
 int granularity = 4;
 int func_len = 8;
 int offset_default = 164;
@@ -46,6 +49,7 @@ uint8_t ld_jmp[8] = {35, 0, 64, 249, 224, 0, 31, 214};
  */
 #define PAGE_ALLOCATE (1 << 10)
 #define COLLIDE_THRESHOLD (LOOP_TRY_HASH * 0.9)
+#define ALIAS_OFFSET 64
 int granularity = 4;
 int func_len = 8;
 int offset_default = 164;
@@ -59,6 +63,7 @@ uint8_t ld_jmp[8] = {35, 0, 64, 249, 224, 0, 31, 214};
  */
 #define PAGE_ALLOCATE (1 << 10)
 #define COLLIDE_THRESHOLD (LOOP_TRY_HASH * 0.8)
+#define ALIAS_OFFSET 16
 int granularity = 4;
 int func_len = 8;
 int offset_default = 164;

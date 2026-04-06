@@ -39,6 +39,7 @@ uint64_t st_jmp_offset[st_jmp_offset_num] = {157, 170, 183, 196, 209,
     560, 573, 586, 599, 612, 625, 638, 651, 664, 677, 690, 703, 716, 
     729, 742, 755, 768, 781, 794, 807, 820, 830, 840, 850, 860, 870, 
     880, 890, 900, 910, 920, 930, 940};
+#define ALIAS_OFFSET 16
 #elif ARCH==2 || ARCH==4
 uint64_t st_jmp_offset[st_jmp_offset_num] = {164, 172, 180, 188, 196, 
     204, 212, 220, 228, 236, 244, 252, 260, 268, 276, 284, 292, 300, 
@@ -46,6 +47,7 @@ uint64_t st_jmp_offset[st_jmp_offset_num] = {164, 172, 180, 188, 196,
     412, 420, 428, 436, 444, 452, 460, 468, 476, 484, 492, 500, 508, 
     516, 524, 532, 540, 548, 556, 564, 572, 580, 588, 596, 604, 612, 
     620, 628, 636, 644, 652, 660, 668};
+#define ALIAS_OFFSET 16
 #elif ARCH==3
 uint64_t st_jmp_offset[st_jmp_offset_num] = {164, 172, 180, 188, 196, 
     204, 212, 220, 228, 236, 244, 252, 260, 268, 276, 284, 292, 300, 
@@ -53,6 +55,7 @@ uint64_t st_jmp_offset[st_jmp_offset_num] = {164, 172, 180, 188, 196,
     412, 420, 428, 436, 444, 452, 460, 468, 476, 484, 492, 500, 508, 
     516, 524, 532, 540, 548, 556, 564, 572, 580, 588, 596, 604, 612, 
     620, 628, 636, 644, 652, 660, 668};
+#define ALIAS_OFFSET 64
 #else
 uint64_t st_jmp_offset[st_jmp_offset_num] = {164, 172, 180, 188, 196, 
     204, 212, 220, 228, 236, 244, 252, 260, 268, 276, 284, 292, 300, 
@@ -60,6 +63,7 @@ uint64_t st_jmp_offset[st_jmp_offset_num] = {164, 172, 180, 188, 196,
     412, 420, 428, 436, 444, 452, 460, 468, 476, 484, 492, 500, 508, 
     516, 524, 532, 540, 548, 556, 564, 572, 580, 588, 596, 604, 612, 
     620, 628, 636, 644, 652, 660, 668};
+#define ALIAS_OFFSET 16
 #endif
 
 int main(int argc, char* argv[]) {
@@ -68,7 +72,7 @@ int main(int argc, char* argv[]) {
     char *ptr1, *ptr2;
     FILE* fin = fopen("in.txt", "r");
     FILE* fout = fopen("out.txt", "w");
-    int operation_num, cpu, record_num, base = 16;
+    int operation_num, cpu, record_num, base = ALIAS_OFFSET;
     fscanf(fin, "%d %d %d", &cpu, &operation_num, &record_num);
     int operation[operation_num], flag[operation_num], 
         operator[operation_num], record_id[record_num];

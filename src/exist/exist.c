@@ -28,6 +28,12 @@
 
 #endif
 
+#if ARCH==3
+#define ALIAS_OFFSET 64
+#else
+#define ALIAS_OFFSET 16
+#endif
+
 extern uint64_t stld(void* addr1, void* addr2);
 
 int main(int argc, char* argv[]) {
@@ -36,7 +42,7 @@ int main(int argc, char* argv[]) {
     char *ptr1, *ptr2;
     FILE* fin = fopen("in.txt", "r");
     FILE* fout = fopen("out.txt", "w");
-    int operation_num, cpu, base = 16;
+    int operation_num, cpu, base = ALIAS_OFFSET;
     fscanf(fin, "%d %d", &cpu, &operation_num);
     int operation[operation_num];
     uint64_t time[operation_num];

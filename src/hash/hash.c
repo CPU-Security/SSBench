@@ -81,7 +81,7 @@ int main(int argc, char* argv[]) {
     char *ptr1 = ptr, *ptr2;
     FILE* fin = fopen("in.txt", "r");
     FILE* fout = fopen("out.txt", "w");
-    int operation_num, cpu, record_num, base = 16;
+    int operation_num, cpu, record_num, base = ALIAS_OFFSET;
     int expected_mdp_val = 0, need_evict = 0; // Learn from state machine analysis
     fscanf(fin, "%d %d %d", &cpu, &operation_num, &expected_mdp_val);
     if (expected_mdp_val == 0) { // state machine is not used
