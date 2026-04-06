@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - pulp
+  - glpk
+  - tqdm
+  - py-cpuinfo

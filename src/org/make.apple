@@ -1,0 +1,32 @@
+CFLAGS = -I.. -D_GNU_SOURCE
+os ?= linux
+arch ?= amd
+
+ifeq ($(arch), apple)
+  arch_file = apple
+  arch_id = 31
+else
+  $(error Unknown ARCH: $(arch))
+endif
+
+bin	:= ../../bin/org
+
+all: microbenchmark mem
+
+microbenchmark: org.c ../utils/cluster.c ../arch/$(arch_file)/org.S ../utils/virt_to_phys.c
+	mkdir -p $(bin)
+	$(CC) $^ -o $@ $(CFLAGS) -DARCH=$(arch_id)
+	mv microbenchmark microbenchmark.orig
+	ln -s aslr-wrapper microbenchmark
+	mv microbenchmark microbenchmark.orig $(bin)
+	cp aslr-wrapper $(bin)
+
+mem: mem.c ../utils/virt_to_phys.c
+	$(CC) $^ -o $@ $(CFLAGS) -DARCH=$(arch_id)
+	mv mem mem.orig
+	ln -s aslr-wrapper mem
+	mv mem mem.orig $(bin)
+	cp aslr-wrapper $(bin)
+
+clean:
+	rm -rf $(bin)
