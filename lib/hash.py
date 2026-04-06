@@ -252,7 +252,7 @@ def test_hash(arch, cpu, collect_addr = False):
         print("Collecting collided addresses, which takes a few minutes or hours.")
         print("To get physical address, privilege is required here.")
         if arch == "apple":
-            print("\033[91m\033[1m[Warning]\033[0m Physical address is not accessible on macOS.")
+            print("\033[93m\033[1m[Warning]\033[0m Physical address is not accessible on macOS.")
         collide_addr = []
         build(arch)
         set_input(gen_seq_in_text_list(seq_for_re), cpu, expected_sm_val)
