@@ -1,6 +1,9 @@
 # ignore all files here
 *
 
-# keep .gitignore
-!.gitignore
-!example
+# allow directories
+!*/
+
+# keep example directory
+!example/
+!example/**
