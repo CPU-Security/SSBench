@@ -2,18 +2,21 @@ CFLAGS = -I.. -D_GNU_SOURCE
 os ?= linux
 arch ?= amd
 
-ifeq ($(arch), amd)
-  arch_file = amd
-  arch_id = 0
-else ifeq ($(arch), intel)
+ifeq ($(arch), intel)
   arch_file = intel
   arch_id = 1
+else ifeq ($(arch), amd)
+  arch_file = amd
+  arch_id = 0
 else ifeq ($(arch), arm)
   arch_file = arm
   arch_id = 2
-else ifeq ($(arch), riscv)
-  arch_file = riscv
-  arch_id = 5
+else ifeq ($(arch), apple)
+  arch_file = apple
+  arch_id = 3
+else ifeq ($(arch), neoverse)
+  arch_file = arm
+  arch_id = 4
 else
   $(error Unknown ARCH: $(arch))
 endif
