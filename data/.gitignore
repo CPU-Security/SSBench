@@ -7,3 +7,4 @@
 # keep example directory
 !example/
 !example/**
+!readme-figure.svg
